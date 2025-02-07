@@ -47,3 +47,15 @@ plt.style.use('ggplot')
 df_uber.groupby(['session','Status']).Status.count().unstack().plot.bar(figsize=(15,10))
 plt.title('Total Count of Trip Statuses')
 ```
+
+**Plotting share/frequency of all Cancelled trips over the day to identify problem areas**
+``` python
+plt.style.use('ggplot')
+colors = ["#20B2AA", "#9400D3"]
+df_tripscancelled.groupby(['session','Pickup_point']).Pickup_point.count().unstack().plot.bar(legend=True, figsize=(15,10), color=colors)
+plt.title('Count and Distribution of all "Cancelled" Trips over the day')
+plt.xlabel('Sessions')
+plt.ylabel('Total Count of "Cancelled" Trips')
+plt.show()
+```
+
