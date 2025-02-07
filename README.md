@@ -36,7 +36,7 @@ Trips were divided into 6 time-based sessions:
 #### b. Cancelled Trips by Pickup Point
 - Analyzed cancellations across sessions and pickup locations to identify problem areas.
 
-### 4. Code Snippets
+### 4. Some Code Snippets
 **1.Session categorization**
 ```python
 session_labels = ['Late Night', 'Early Morning', 'Late Morning', 'Afternoon', 'Evening', 'Night']
@@ -48,6 +48,7 @@ df_uber.groupby(['session','Status']).Status.count().unstack().plot.bar(figsize=
 plt.title('Total Count of Trip Statuses')
 ```
 <img width="585" alt="Screenshot 2025-02-07 at 4 47 57 PM" src="https://github.com/user-attachments/assets/5e62f41a-2f6e-466d-8da3-23d956a95d5c" />
+
 
 
 
@@ -64,3 +65,22 @@ plt.ylabel('Total Count of "Cancelled" Trips')
 plt.show()
 ```
 <img width="905" alt="Screenshot 2025-02-07 at 4 45 28 PM" src="https://github.com/user-attachments/assets/c2ef0440-5639-4948-ab28-c599e5eeaa89" />
+
+
+
+
+**3.Plotting share/frequency of all "Trip Status" over the day to identify problem areas**
+```python
+plt.style.use('ggplot')
+colors = ["#CC2529", "#8E8D8D","#008000"]
+df_uber.groupby(['session','Status']).Status.count().unstack().plot.bar(legend=True, figsize=(15,10), color=colors)
+plt.title('Total Count of all Trip Statuses')
+plt.xlabel('Sessions')
+plt.ylabel('Total Count of Trip Status')
+plt.show()
+```
+<img width="907" alt="Screenshot 2025-02-07 at 4 50 21 PM" src="https://github.com/user-attachments/assets/b86bad10-061e-4de4-b3ee-37dd1de95956" />
+
+
+
+
