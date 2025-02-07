@@ -37,7 +37,7 @@ Trips were divided into 6 time-based sessions:
 - Analyzed cancellations across sessions and pickup locations to identify problem areas.
 
 ### 4. Code Snippets
-**Session categorization**
+**1.Session categorization**
 ```python
 session_labels = ['Late Night', 'Early Morning', 'Late Morning', 'Afternoon', 'Evening', 'Night']
 df_uber['session'] = pd.cut(df_uber.Request_timestamp.dt.hour, [-1,4,8,12,16,20,24], labels=session_labels)
@@ -47,6 +47,10 @@ plt.style.use('ggplot')
 df_uber.groupby(['session','Status']).Status.count().unstack().plot.bar(figsize=(15,10))
 plt.title('Total Count of Trip Statuses')
 ```
+<img width="585" alt="Screenshot 2025-02-07 at 4 47 57 PM" src="https://github.com/user-attachments/assets/5e62f41a-2f6e-466d-8da3-23d956a95d5c" />
+
+
+
 
 **2. Plotting share/frequency of all Cancelled trips over the day to identify problem areas**
 
