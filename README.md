@@ -37,7 +37,7 @@ Trips were divided into 6 time-based sessions:
 - Analyzed cancellations across sessions and pickup locations to identify problem areas.
 
 ### 4. Code Snippets
-** Session categorization**
+**Session categorization**
 ```python
 session_labels = ['Late Night', 'Early Morning', 'Late Morning', 'Afternoon', 'Evening', 'Night']
 df_uber['session'] = pd.cut(df_uber.Request_timestamp.dt.hour, [-1,4,8,12,16,20,24], labels=session_labels)
